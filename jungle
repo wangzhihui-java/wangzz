@@ -1,0 +1,14 @@
+public class jungle {
+public static void main(String[] args) {
+double blood=1.00;
+int milk=5;
+int i=4;
+for(;i>=1;i--)
+{
+	blood=blood+1;}
+
+for(;milk>0;milk--)
+{blood/=2;
+}System.out.print(blood);
+}
+}
