@@ -1,0 +1,119 @@
+package overload;
+import java.util.Scanner;
+public class Plural{
+private double real,image;	//实部 虚部
+
+Plural(double real,double image){	//带参构造函数
+	@SuppressWarnings("resource")
+	Scanner input =new Scanner(System.in);
+	double real1=input.nextDouble();
+	double image1=input.nextDouble();
+	complex(real1,image1);
+}
+
+private void complex(double real1, double image1) {
+	
+}
+
+public Plural() {
+//无参构造函数
+}
+
+public double getReal() {
+return real;
+}
+
+public void setReal(double real) {
+
+this.real = real;
+}
+
+public double getImage() {
+return image;
+}
+
+public void setImage(double image) {
+
+this.image = image;
+}
+
+Plural add(Plural a) {	//复数相加
+double 	real2 =a.getReal();
+double 	image2=a.getImage();
+double newReal= real +real2;
+double newImage=image+image2;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+Plural sub(Plural a) {	//复数相减
+double 	real2 =a.getReal();
+double 	image2=a.getImage();
+double newReal= real -real2;
+double newImage=image-image2;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+Plural mul(Plural a) {	//复数相乘
+double 	real2 =a.getReal();
+double 	image2=a.getImage();
+double newReal= real *real2-image*image2;
+double newImage=real*image2+image*real2;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+
+Plural div(Plural a) {	//复数相除
+double 	real2 =a.getReal();
+double 	image2=a.getImage();
+double newReal= (real*real2+image*image2)/(real2*real2+image2*image2);
+double newImage=(image*real2-real*image2)/(real2*real2+image2*image2);
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+Plural add(double a) {	//复数加整数
+double 	real2 =a;
+double newReal= real +real2;
+double newImage=image;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+Plural sub(double a) {	//复数整数相减
+double 	real2 =a;
+double newReal= real -real2;
+double newImage=image;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+Plural mul(double a) {	//复数实数相乘
+double 	real2 =a;
+double newReal= real *real2;
+double newImage=image*real2;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+
+Plural div(double a) {	//复数相除
+double 	real2 =a;
+double newReal= real/real2;
+double newImage=image/real2;
+Plural result = new Plural(newReal,newImage);
+return result;
+}
+
+public void prin() {	//输出函数
+if(image>0) {
+System.out.println(real+"+"+image+"i");
+}else if(image<0) {
+System.out.println(real+""+image+"i");
+}else {
+System.out.println(real);
+}
+}
+}
